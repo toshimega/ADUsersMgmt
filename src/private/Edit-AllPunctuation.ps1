@@ -61,7 +61,7 @@ function Edit-AllPunctuation {
             'Ç' = 'C'
             'Ñ' = 'N'
         }
-    }#begin
+    } #begin
     PROCESS {
         foreach ($string in $InputString) {
             Write-Verbose '[PROCESS] Starting string operations.'
@@ -73,7 +73,7 @@ function Edit-AllPunctuation {
             }
             Write-Output $string
         }
-    }#process
+    } #process
     END {
     }
-}#Edit-AllPunctuation
+} #Edit-AllPunctuation
