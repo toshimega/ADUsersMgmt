@@ -2,10 +2,10 @@ function Get-ADUserfromGroupMember {
     
     [CmdLetBinding()]
     [OutputType('ADUser')]
-    [alias('gagmu')]
+    [alias('ggm')]
 
     param (
-        [string]$group = 'GRP_NIT_Escolas'
+        [string]$group
     )
     BEGIN {
         [System.Collections.ArrayList]$members = @()

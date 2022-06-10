@@ -7,18 +7,18 @@ function Get-ADUserImmutableID {
             Position = 0)]
         
         [string[]]
-        $SamAccountName = $(Throw 'É necessário o -SamAccountName'),
+        $SamAccountName = $(Throw 'Must provide -SamAccountName'),
 
         [parameter(
-            HelpMessage = 'Introduza o caminho para a pasta onde pretende exportar o valor.'
+            HelpMessage = 'Enter the path where you wish to output the file.'
         )]
         [ValidateScript({ Test-Path $_ })]
         [string]
-        $Destination = $(Throw 'É necessário o parametro -Destino')
+        $FilePath = $(Throw 'Parameter -FilePath mandatory')
     )
     BEGIN {
         $Hora = [System.DateTime]::Now.ToShortTimeString()
-        $Output = "$($Destination)\$($SamAccountName)ImmutableID.txt"
+        $Output = "$($FilePath)\$($SamAccountName)ImmutableID.txt"
     }
 
     PROCESS {

@@ -1,4 +1,4 @@
-function Get-EduADUser {
+function Get-ADUserbyAttribute {
     [cmdletbinding(PositionalBinding = $true)]
     [OutputType('ADUser')]
     [Alias('geau')]
@@ -44,4 +44,4 @@ function Get-EduADUser {
     END {
         Write-Verbose "[END   ] Ending $($MyInvocation.MyCommand)" 
     } #end
-}#Get-EduADUser
+} #Get-ADUserbyAttribute

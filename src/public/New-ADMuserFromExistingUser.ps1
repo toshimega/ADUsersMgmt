@@ -1,4 +1,4 @@
-function New-EduADMuser {
+function New-ADMuserFromExistingUser {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory,
@@ -57,4 +57,4 @@ function New-EduADMuser {
     END {
         Write-Verbose "[END] Ending $($MyInvocation.MyCommand)" 
     }
-}#New-EduADMUser
+} #New-ADMuserFromExistingUser

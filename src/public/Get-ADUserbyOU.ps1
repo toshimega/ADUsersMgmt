@@ -1,10 +1,10 @@
-function Get-EduADUserbyOU {
+function Get-ADUserbyOU {
     [cmdletbinding()]
 
     param (
         [parameter(ValueFromPipeline,
             ValueFromPipelinebyPropertyName)]
-        [ValidateSet('Alunos', 'Docentes', 'Colaboradores')]
+        [ValidateSet('Students', 'Teachers', 'Employees')]
         [ValidateNotNullorEmpty()]
         [string]
         $OrganizationalUnit,
@@ -23,7 +23,7 @@ function Get-EduADUserbyOU {
     }
     PROCESS {
         if ($All) {
-            $searchbase = 'OU=4_Alunos,DC=edu,DC=azores,DC=gov,DC=local', 'OU=5_Docentes,DC=edu,DC=azores,DC=gov,DC=local', 'OU=6_Colaboradores,DC=edu,DC=azores,DC=gov,DC=local'
+            $searchbase = 'OU=4_Students,DC=contoso,DC=com', 'OU=5_Teachers,DC=contoso,DC=com', 'OU=6_Employees,DC=contoso,DC=com'
             foreach ($ou in $searchbase) {
                 Get-ADUser @params -SearchBase "$($ou)"
             }
@@ -31,13 +31,13 @@ function Get-EduADUserbyOU {
         else {
             switch -Regex ($OrganizationalUnit) {
                 'Alunos' {
-                    $params.Add('Searchbase', 'OU=4_Alunos,DC=edu,DC=azores,DC=gov,DC=local'); Break 
+                    $params.Add('Searchbase', 'OU=4_Students,DC=contoso,DC=com'); Break 
                 }
                 'Docentes' {
-                    $params.Add('Searchbase', 'OU=5_Docentes,DC=edu,DC=azores,DC=gov,DC=local'); Break 
+                    $params.Add('Searchbase', 'OU=5_Teachers,DC=contoso,DC=com'); Break 
                 }
                 'Colaboradores' {
-                    $params.Add('Searchbase', 'OU=6_Colaboradores,DC=edu,DC=azores,DC=gov,DC=local'); Break 
+                    $params.Add('Searchbase', 'OU=6_Employees,DC=contoso,DC=com'); Break 
                 }
             }
             Get-ADUser @params
@@ -45,4 +45,4 @@ function Get-EduADUserbyOU {
     }
     END {
     }      
-}#Get-EduADUserbyOU
+} #Get-ADUserbyOU
