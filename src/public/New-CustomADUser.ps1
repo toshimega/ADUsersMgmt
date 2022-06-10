@@ -1,4 +1,4 @@
-function New-EduADUser {
+function New-CustomADUser {
     [cmdletbinding(PositionalBinding = $true)]
     param (
         [Parameter(ValueFromPipeline,
@@ -7,11 +7,14 @@ function New-EduADUser {
         [PSObject[]]$InputObject,
         
         [parameter(Mandatory)]
-        [validateSet('Alunos', 'Colaboradores', 'Docentes')]
+        [validateSet('Students', 'Teachers', 'Employees')]
         [string]$OrganizationalUnit,
         
         [parameter()]
-        [SecureString]$Password = 'JweJqSdzTSUCmWuHNJm6wXsNw'
+        [SecureString]$Password,
+
+        [parameter()]
+        [string]$DomainFQDN
     )
     BEGIN {
         Write-Verbose "[BEGIN]  Starting $($MyInvocation.MyCommand)"
@@ -28,7 +31,7 @@ function New-EduADUser {
                 TargetAddress       = "SMTP:$User.emailAddress"
             }
 
-            $EduUser = @{
+            $Users = @{
                 Enabled               = $True
                 SamAccountName        = $User.SamAccountName.Trim()
                 UserPrincipalName     = $User.UserPrincipalName.Trim()
@@ -42,32 +45,32 @@ function New-EduADUser {
                 EmailAddress          = $User.EmailAddress.Trim()
                 AccountPassword       = (ConvertTo-SecureString -AsPlainText "$Password" -Force)
                 ChangePasswordAtLogon = $False
-                HomePage              = 'htts://edu.azores.gov.pt'
-                Department            = 'Direção Regional da Educação'
-                Division              = $User.'Escola'
-                Company               = 'Direção Regional da Educação'
-                State                 = 'Açores'
+                HomePage              = 'htts://'
+                Department            = 'department'
+                Division              = $User.'School'
+                Company               = 'company'
+                State                 = 'state'
                 OtherAttributes       = $oAttributes
             }
             
             switch -regex ($OrganizationalUnit) {
-                'Alunos' {
-                    $EduUser.add('Path', 'OU=4_Alunos,dc=edu,dc=azores,dc=gov,dc=local')
-                    $EduUser.add('Title', 'Aluno'); BREAK
+                'Students' {
+                    $Users.add('Path', "OU=4_Students,$DomainFQDN")
+                    $Users.add('Title', 'Student'); BREAK
                 }
                 'Docentes' {
-                    $EduUser.add('Path', 'OU=5_Docentes,dc=edu,dc=azores,dc=gov,dc=local')
-                    $EduUser.add('Title', 'Docente'); BREAK
+                    $Users.add('Path', "OU=5_Teachers,$DomainFQDN")
+                    $Users.add('Title', 'Teacher'); BREAK
                 }
                 'Colaboradores' {
-                    $EduUser.add('Path', 'OU=6_Colaboradores,dc=edu,dc=azores,dc=gov,dc=local')
-                    $EduUser.add('Title', 'Colaborador'); BREAK
+                    $Users.add('Path', "OU=6_Employees,$DomainFQDN")
+                    $Users.add('Title', 'Employee'); BREAK
                 }
                 Default {
                 }
             }
             try {
-                New-ADUser @EduUser
+                New-ADUser @Users
             } 
             catch {
                 $_
@@ -77,4 +80,4 @@ function New-EduADUser {
     END {
         Write-Verbose "[END]    Ending $($MyInvocation.MyCommand)"
     }
-}#New-EDUADUser
+} #New-CustomADUser

@@ -7,8 +7,8 @@ if ($Myinvocation.line -match '-verbose') {
 
 #region::CarregarFuncoes
 Write-Verbose 'A carregar as funções'
-. $PSScriptRoot\src\public\Get-EduADUser.ps1
-. $PSScriptRoot\src\public\Get-ADUserfromGroupMember.ps1
+. $PSScriptRoot\src\public\Get-ADUserbyAttribute.ps1
+. $PSScriptRoot\src\public\.ps1
 . $PSScriptRoot\src\public\Get-ADUserImmutableID
 . $PSScriptRoot\src\public\Get-EduADUserbyOU.ps1
 . $PSScriptRoot\src\public\New-EduADLOGON.ps1
@@ -18,11 +18,11 @@ Write-Verbose 'A carregar as funções'
 #endregion::CarregarFuncoes
 
 #region::GenerateCredentials
-$EncryptedPassword = Get-Secret -Name RN861025-ADM
-$RN861025ADM = 'EDU\RN861025-ADM'
-$global:credEDU = [System.Management.Automation.PSCredential]::new($RN861025ADM, $EncryptedPassword)
+$EncryptedPassword = Get-Secret -Name ''
+$TT112233ADM = ''
+$global:credEDU = [System.Management.Automation.PSCredential]::new($TT112233ADM, $EncryptedPassword)
 #endregion::GenerateCredentials
 
 #region::ModuleEnvironmentSetup
-$global:ServerName = 'E000DCSD-VM.edu.azores.gov.local'
+$global:ServerName = ''
 #endregion::ModuleEnvironmentSetup

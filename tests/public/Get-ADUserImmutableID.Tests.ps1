@@ -1,5 +1,5 @@
 BeforeAll {
-    $ModulePath = 'C:\Users\RN861025\OneDrive - PGA\DEV\EDU\edu.adusers\edu.adusers.psm1' 
+    $ModulePath = '.\edu.adusers.psm1' 
     Import-Module $ModulePath
     Mock -ModuleName edu.adusers Get-ADUserImmutableID { $LASTEXITCODE = 0 }
 }
