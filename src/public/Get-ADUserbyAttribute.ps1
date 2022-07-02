@@ -43,5 +43,5 @@ function Get-ADUserbyAttribute {
     }
     END {
         Write-Verbose "[END   ] Ending $($MyInvocation.MyCommand)" 
-    } #end
+    }
 } #Get-ADUserbyAttribute

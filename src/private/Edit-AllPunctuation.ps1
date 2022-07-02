@@ -5,7 +5,7 @@ function Edit-AllPunctuation {
             Position = 0,
             ValueFromPipeline,
             ValueFromPipelinebyPropertyName,
-            HelpMessage = 'Introduza a frase ou conjunto de frases, para as quais pretende substituir caracteres com pontuação, por mesmo caracter sem pontuação')]
+            HelpMessage = 'Introduza a frase ou conjunto de frases, para as quais pretende substituir um caracteres por si mesmo mas sem pontuação')]
         [string[]]$InputString
     )
     BEGIN {
@@ -61,7 +61,7 @@ function Edit-AllPunctuation {
             'Ç' = 'C'
             'Ñ' = 'N'
         }
-    } #begin
+    }
     PROCESS {
         foreach ($string in $InputString) {
             Write-Verbose '[PROCESS] Starting string operations.'
@@ -73,7 +73,7 @@ function Edit-AllPunctuation {
             }
             Write-Output $string
         }
-    } #process
+    }
     END {
     }
 } #Edit-AllPunctuation
