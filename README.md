@@ -1,6 +1,6 @@
 # ADUsersMgmt
 
-Módulo Powershell que permite e facilita a criação e gestão de utilizadores em ambiente ActivfeDirectory.
+Módulo Powershell que permite e facilita a criação e gestão de utilizadores em ambiente ActiveDirectory.
 É um módulo com funcões do tipo wrapper a comandos existentes, personalizando alguns para o fim pretendido.
 
 Utilização:
