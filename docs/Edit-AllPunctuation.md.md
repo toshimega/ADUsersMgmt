@@ -24,6 +24,16 @@ Edit-AllPunctuation [-InputString] <String[]> [<CommonParameters>]
 ### Example 1
 ```powershell
 PS C:\> {{  Edit-AllPunctuation -InputString 'Olá, Estão caçando código aberto? Têm aqui'
+
+-Output:  Ola, Estao cacando codigo aberto? Tem aqui }}
+```
+
+{{ Accepting a punctuated string, using the parameter InputString }}
+
+### Example 2
+```powershell
+PS C:\> {{ 'Olá, Estão caçando código aberto? Têm aqui' | Edit-AllPunctuation
+
 -Output:  Ola, Estao cacando codigo aberto? Tem aqui }}
 ```
 
