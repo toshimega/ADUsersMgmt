@@ -24,16 +24,16 @@
     Author            = 'Rui Nogueira'
 
     # Company or vendor of this module
-    CompanyName       = 'NIT'
+    CompanyName       = ''
 
     # Copyright statement for this module
-    Copyright         = 'Secretaria Regional da Educação 2022'
+    Copyright         = 'Rui Nogueira'
 
     # Description of the functionality provided by this module
-    Description       = 'Adiciona capacidade e facilidade de gestão Active Directory'
+    Description       = 'Adiciona capacidade e facilidade de gestão de objetos do tipo utilizador em ambiente Active Directory'
 
     # Minimum version of the PowerShell engine required by this module
-    # PowerShellVersion = ''
+    # PowerShellVersion = '5'
 
     # Name of the PowerShell host required by this module
     # PowerShellHostName = ''
@@ -42,7 +42,7 @@
     # PowerShellHostVersion = ''
 
     # Minimum version of Microsoft .NET Framework required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
-    # DotNetFrameworkVersion = ''
+    # DotNetFrameworkVersion = '4.7'
 
     # Minimum version of the common language runtime (CLR) required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
     # ClrVersion = ''

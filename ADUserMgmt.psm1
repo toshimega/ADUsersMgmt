@@ -17,11 +17,10 @@ Write-Verbose 'A carregar as funções'
 #endregion::CarregarFuncoes
 
 #region::GenerateCredentials
-$EncryptedPassword = Get-Secret -Name ''
-$TT112233ADM = ''
-$global:credEDU = [System.Management.Automation.PSCredential]::new($TT112233ADM, $EncryptedPassword)
+Write-Host 'Por favor introduza credenciais de utilizador com permissões suficientes para administração de objetos do tipo User no diretório'
+$global:Cred = Get-Credential
 #endregion::GenerateCredentials
 
 #region::ModuleEnvironmentSetup
-$global:ServerName = ''
+$global:Server = Read-Host 'Por favor introduza o fqdn do servidor AD'
 #endregion::ModuleEnvironmentSetup

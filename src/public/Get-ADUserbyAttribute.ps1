@@ -30,8 +30,8 @@ function Get-ADUserbyAttribute {
             $Params = @{
                 'Filter'     = "$($Attribute) -eq '$($val)'"
                 'Property'   = $selectdProperties
-                'Server'     = $global:ServerName
-                'Credential' = $global:credEDU
+                'Server'     = $global:Server
+                'Credential' = $global:Cred
             }
             Try {
                 Get-ADUser @Params
