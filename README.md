@@ -1,7 +1,7 @@
-# ADUsersMgmt
+# ADUser helper functions
 
 Módulo Powershell que permite e facilita a criação e gestão de utilizadores em ambiente ActiveDirectory.
-É um módulo com funcões do tipo wrapper a comandos existentes, personalizando alguns para o fim pretendido.
+É um módulo com funcões do tipo "wrapper" a comandos existentes, personalizando alguns para fim específico pretendido.
 
 Utilização:
 
