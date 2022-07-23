@@ -19,19 +19,17 @@ function Get-ADUserbyAttribute {
         )]
         [ValidateNotNullorEmpty()]
         [Alias('V', 'Valor')]
-        [psobject]$Value
+        [string[]]$Value
     )
     BEGIN {
         Write-Verbose "[BEGIN   ] Starting $($MyInvocation.MyCommand)"
     }
     PROCESS {
-        foreach ($val in $Value) {
+        foreach ($val in $value) {
             $selectdProperties = 'Name', 'EmployeeType', 'SamAccountName', 'UserPrincipalName', 'EmailAddress'
             $Params = @{
-                'Filter'     = "$($Attribute) -eq '$($val)'"
+                'Filter'     = "$($Attribute) -eq '$($value)'"
                 'Property'   = $selectdProperties
-                'Server'     = $global:Server
-                'Credential' = $global:Cred
             }
             Try {
                 Get-ADUser @Params
@@ -44,4 +42,4 @@ function Get-ADUserbyAttribute {
     END {
         Write-Verbose "[END   ] Ending $($MyInvocation.MyCommand)" 
     }
-} #Get-ADUserbyAttribute
+}#Get-ADUserbyAttribute

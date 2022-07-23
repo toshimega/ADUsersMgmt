@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-ADUserbyAttribute
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+{{ Este comando simplifica a pesquisa de utilizadores via active directory, pela utilização de parametros invés do 'Filter' }}
 
 ## SYNTAX
 
