@@ -2,7 +2,7 @@
 if ($Myinvocation.line -match '-verbose') {
     $VerbosePreference = 'continue'
 }
-
+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
 #endregion::SetVerbosePreference
 
 #region::CarregarFuncoes
