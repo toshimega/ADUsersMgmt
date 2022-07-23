@@ -1,6 +1,6 @@
 ---
-external help file: ADUserMgmt-help.xml
-Module Name: ADUserMgmt
+external help file: adusers-helpers-help.xml
+Module Name: adusers-helpers
 online version:
 schema: 2.0.0
 ---

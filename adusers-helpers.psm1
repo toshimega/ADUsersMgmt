@@ -17,10 +17,10 @@ Write-Verbose 'A carregar as funções'
 #endregion::CarregarFuncoes
 
 #region::GenerateCredentials
-Write-Host 'Por favor introduza credenciais de utilizador com permissões suficientes para administração de objetos do tipo User no diretório'
+Write-Host 'Por favor introduza credenciais de utilizador com permissões suficientes para administração de objetos do tipo ADUser no diretório'
 $global:Cred = Get-Credential
 #endregion::GenerateCredentials
 
 #region::ModuleEnvironmentSetup
-$global:Server = Read-Host 'Por favor introduza o fqdn do servidor AD'
+$global:Server = Read-Host 'Por favor introduza o fqdn do servidor ActiveDirectory'
 #endregion::ModuleEnvironmentSetup
