@@ -4,7 +4,7 @@ function Get-ADUserbyOU {
     param (
         [parameter(ValueFromPipeline,
             ValueFromPipelinebyPropertyName)]
-        [ValidateSet('Students', 'Teachers', 'Employees')]
+        [ValidateSet('Alunos', 'Docentes', 'Colaboradores')]
         [ValidateNotNullorEmpty()]
         [string]
         $OrganizationalUnit,
@@ -29,13 +29,13 @@ function Get-ADUserbyOU {
         else {
             switch -Regex ($OrganizationalUnit) {
                 'Alunos' {
-                    $params.Add('Searchbase', 'OU=4_Students,DC=contoso,DC=com'); Break 
+                    $params.Add('Searchbase', 'OU=4_Alunos,DC=edu,DC=azores,DC=gov,DC=local'); Break 
                 }
                 'Docentes' {
-                    $params.Add('Searchbase', 'OU=5_Teachers,DC=contoso,DC=com'); Break 
+                    $params.Add('Searchbase', 'OU=5_Docentes,DC=edu,DC=azores,DC=gov,DC=local'); Break 
                 }
                 'Colaboradores' {
-                    $params.Add('Searchbase', 'OU=6_Employees,DC=contoso,DC=com'); Break 
+                    $params.Add('Searchbase', 'OU=6_Colaboradores,DC=edu,DC=azores,DC=gov,DC=local'); Break 
                 }
             }
             Get-ADUser @params
@@ -43,5 +43,4 @@ function Get-ADUserbyOU {
     }
     END {
     }      
-} #Get-ADUserbyOU
-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
+}
