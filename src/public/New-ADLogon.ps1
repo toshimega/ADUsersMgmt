@@ -1,4 +1,4 @@
-function New-EduADLOGON {
+function New-ADLOGON {
     [CmdletBinding()]
     param (
         [Parameter(ValueFromPipeline,
@@ -65,4 +65,4 @@ function New-EduADLOGON {
     END {
         Write-Verbose "[END    ]Ending $($MyInvocation.MyCommand)"
     }
-}#New-EduLOGON
+}

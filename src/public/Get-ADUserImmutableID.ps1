@@ -38,4 +38,4 @@ function Get-ADUserImmutableID {
     }
     END {
     }
-} #Get-EDUADUserImmutableID
+}

@@ -10,7 +10,6 @@ Write-Verbose 'A carregar as funções'
 . $PSScriptRoot\src\public\Get-ADUserbyOU.ps1
 . $PSScriptRoot\src\public\Get-ADUserImmutableID
 . $PSScriptRoot\src\public\New-ADLOGON.ps1
-. $PSScriptRoot\src\public\New-ADMUserFromExistingUser.ps1
 . $PSScriptRoot\src\public\New-CustomADUser.ps1
 . $PSScriptRoot\src\private\Edit-AllPunctuation.ps1
 #endregion::CarregarFuncoes
