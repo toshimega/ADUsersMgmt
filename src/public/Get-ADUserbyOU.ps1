@@ -6,7 +6,7 @@ function Get-ADUserbyOU {
             ValueFromPipeline,
             ValueFromPipelinebyPropertyName)]
         [ValidateNotNullorEmpty()]
-        [string[]]$ou_distinguishedname
+        [string[]]$searchbase
     )
     BEGIN {
         Write-Verbose "[BEGIN]  Starting $($MyInvocation.MyCommand)"
@@ -29,14 +29,12 @@ function Get-ADUserbyOU {
             'UserPrincipalName',
             'WhenChanged',
             'WhenCreated'
-            'searchbase' = "$($ou_distinguishedname)"
         }
     }
     PROCESS {
         foreach ($ou in $searchbase) {
             Get-ADUser @params
         }
-
     }
     END {
     }      
