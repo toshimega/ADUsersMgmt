@@ -17,13 +17,11 @@ function Get-ADUserbyOU {
         $params = @{
             'Filter'     = '*'
             'Properties' = 'CN', 'DistinguishedName', 'EmployeeType', 'Enabled', 'GivenName', 'Mail', 'Name', 'ObjectClass', 'ObjectGUID', 'SamAccountName', 'SID', 'Surname', 'UserPrincipalName', 'WhenChanged', 'WhenCreated'
-            'Server'     = $ServerName
-            'Credential' = $credEDU
         }
     }
     PROCESS {
         if ($All) {
-            $searchbase = 'OU=4_Students,DC=contoso,DC=com', 'OU=5_Teachers,DC=contoso,DC=com', 'OU=6_Employees,DC=contoso,DC=com'
+            $searchbase = 'OU=4_Alunos,DC=edu,DC=azores,DC=gov,DC=local', 'OU=5_Docentes,DC=edu,DC=azores,DC=gov,DC=local', 'OU=6_Colaboradores,DC=edu,DC=azores,DC=gov,DC=local'
             foreach ($ou in $searchbase) {
                 Get-ADUser @params -SearchBase "$($ou)"
             }
